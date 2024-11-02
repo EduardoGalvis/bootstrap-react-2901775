@@ -1,0 +1,7 @@
+.filter-invert {
+    filter: invert(100%);
+}
+
+.filter-grey {
+    filter: invert(50%);
+}
