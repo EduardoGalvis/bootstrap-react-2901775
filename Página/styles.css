@@ -1,0 +1,45 @@
+.bg-success
+{
+    background-color: #015958!important;
+}
+.border-success
+{
+ border-color: #015958!important;
+}
+.bg-success-subtle
+{
+    background-color: #008F8C!important;
+}
+
+.btn-outline-success
+{
+    border-color: white;
+    color: white;
+}
+.btn-outline-success-s
+{
+    border-color: #008F8C;
+    color: #008F8C;
+}
+.btn-outline-success-s:hover
+{
+    background-color: #008F8C;
+    color: white;
+}
+.btn-outline-success:hover
+{
+    color:rgb(0, 0, 0);
+    background-color: white;
+}
+
+.bg-danger-subtle
+{
+    background-color: #6387A6!important;
+}
+.fondo
+{
+    background-image: url(Images/Final\ 2.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 900px;
+}
