@@ -30,7 +30,23 @@ El diseño de empaques es una habilidad clave en un mundo donde la presentación
 Eduardo Galvis Arango  
 Maria Ángel Ramos Carvajalino
 
-# Mooc
+# Mockups
+
+[Inicio de sesión](Githubi/Iniciar%20sesión.png "Mi imagen local")   
+[Registrarse](Githubi/Registrarse.png "Mi imagen local")  
+[Home](Githubi/Principal%201.png "Mi imagen local")  
+[Moocs](Githubi/Moocs.png "Mi imagen local")   
+[Mis moocs](Githubi/Mis%20Moocs.png "Mi imagen local")  
+[Nosotros](Githubi/Nosotros.png "Mi imagen local")  
+[Videos disponibles](Githubi/Videos%20Disponibles.png "Mi imagen local")  
+[Suscripciones](Githubi/Suscripciones.png "Mi imagen local")  
+[Configuración de perfil](Githubi/Perfil%20y%20configuración.png.png "Mi imagen local")  
+[Primer módulo](Githubi/Introduccón%20Diseño%20de%20empaques.png "Mi imagen local")  
+[Enfoque](Githubi/Enfoque.png "Mi imagen local")  
+[Documentación disponible](Githubi/Documentos.png "Mi imagen local")  
+[Documentación del mooc](Githubi/Diseño%20de%20empaques.png "Mi imagen local")  
+[Avances](Githubi/Avances.png "Mi imagen local")  
+[Suscripciones](Githubi/Suscripciones.png "Mi imagen local")  
 
 
 
