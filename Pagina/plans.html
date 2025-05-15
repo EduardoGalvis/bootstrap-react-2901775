@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Planes demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <!-- Menu -->
+    <header class="bg-success">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg text-center text-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand me-5" href="index.html"><img src="Icons/Logo.svg" width="50"
+                                    alt="Logo"></a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="bi bi-menu-down text-light"></i>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li>
+                                        <form class="d-flex" role="search">
+                                            <input class="form-control me-2 rounded-pill" type="search"
+                                                placeholder="Busca tu mooc..." aria-label="Search" />
+                                            <button class="btn btn-outline-light" type="submit">
+                                                <i class="bi bi-search"></i>
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                                <!-- como cambio su comportamiento en small -->
+                                <a class="nav-link me-3 my-3" href="moocs.html">Moocs</a>
+                                <a class="nav-link me-3 my-3" href="#">Avances</a>
+                                <a class="nav-link me-3 my-3" href="mymoocs.html">Mis moocs</a>
+                                <!-- p: cambiar de estado bell fill a bell-->
+                                <i type="button" class="bi bi-bell fs-3 me-3 my-3" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                </i>
+                                <!-- Modal, como chuchas le quito ese diseño horrible, la posiciono al lado del bell y le quito tanta opacidad-->
+                                <div class="modal fade text-black" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Bandeja de
+                                                    notificaciones</h1>
+                                            </div>
+                                            <div class="modal-body">
+                                                Sin notificaciones
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-success"
+                                                    data-bs-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="nav-link me-3 my-2" href="login.html">
+                                    <i class="bi bi-person-circle fs-3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Pricing P: como hago para que los botones se queden abajo en sm-->
+    <main class="container">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">Suscripciones</h1>
+            <p class="fs-5 text-body-secondary">Estudia y conviértete en un profesional con el plan ideal que se acomode
+                a tu gusto</p>
+        </div>
+        <div class="row row-gap-3 row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div
+                    class="card mb-4 h-100 rounded-3 shadow-sm border border-4 border-start-0 border-end-0 border-bottom-0 border-success-subtle">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Básico</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title ">$0<small
+                                class="text-body-secondary fw-light fs-4">COP/mes</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Acceso a los módulos teóricos de los cursos</li>
+                            <li>Documentación de los cursos</li>
+                            <li>Ejercicios de práctica</li>
+                            <li>Actividades</li>
+                            <li class="mt-3">Ideal para aquellos que comienzan una nueva búsqueda de conocimiento</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg">Tu plan actual</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div
+                    class="card mb-4 h-100 rounded-3 shadow-sm border border-4 border-start-0 border-end-0 border-bottom-0 border-success">
+                    <div class="card-header py-3 d-flex justify-content-center align-items-center">
+                        <!-- alguna forma para poner filtro o cambiar de color el svg desde codigo -->
+                        <img src="Icons/Logo.svg" class="bg-success-subtle me-2" width="50px">
+                        <h4 class="my-0 fw-normal">Pro</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title ">$179,990<small
+                                class="text-body-secondary fw-light fs-4">COP/mes</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li class="fw-bold">Incluídos beneficios del plan Básico</li>
+                            <li>Actividades adicionales con casos de estudio</li>
+                            <li>Foros de discusión y grupos de estudio</li>
+                            <li>Certificación al finalizar los cursos</li>
+                            <li class="mt-3">Diseñado para los que van más allá con sus estudios y quieren dar el
+                                siguiente paso</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-success-s">¡Da el siguiente
+                            paso!</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div
+                    class="card mb-4 h-100 rounded-3 shadow-sm border border-4 border-start-0 border-end-0 border-bottom-0 border-warning">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Premium</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title ">$299,990<small
+                                class="text-body-secondary fw-light fs-4">COP/mes</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li class="fw-bold">Incluídos beneficios del plan Pro</li>
+                            <li>Acceso a talleres exclusivos</li>
+                            <li>Guías de color, tipografía y de tendencias</li>
+                            <li>Feedback de proyecto final de empaque</li>
+                            <li class="mt-3">Obtén la experiencia completa con materiales exclusivos y apoyo para
+                                destacar en tus trabajos</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-warning"><i
+                                class="bi bi-chevron-double-up"></i> Vamos con toda <i
+                                class="bi bi-chevron-double-up"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr class="border border-success border-2">
+            </div>
+        </div>
+    </main>
+    <!-- Comparación -->
+    <div class="container">
+        <div class="row">
+            <div class="col mt-2">
+                <h2 class="display-6 text-center mb-4">Compara los planes</h2>
+
+                <div class="table-responsive mb-5">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th style="width: 34%;"></th>
+                                <th style="width: 22%;">Básico</th>
+                                <th style="width: 22%;" class="text-success">Pro</th>
+                                <th style="width: 22%;" class="text-warning">Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-start">Acceso a módulos teóricos</th>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Lecturas en PDF</th>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                        </tbody>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-start">Actividades prácticas</th>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Ejercicios de autoevaluación</th>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start text-success">Certificación</th>
+                                <td></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Acceso a foros y grupos de estudio</th>
+                                <td></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Casos de estudio</th>
+                                <td></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Clases en video</th>
+                                <td></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Plantillas y recursos exclusivos</th>
+                                <td></td>
+                                <td></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="text-start">Revisión y feedback de proyecto final</th>
+                                <td></td>
+                                <td></td>
+                                <td><i class="bi bi-check-lg"></i></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Footer -->
+    <footer class="pt-4 pt-md-5 border-top bg-success text-white mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <!-- Cambiar color de logo a negro y el borde de los titulos que ocupen solo el largo de la letra-->
+                    <img class="mb-2" src="Icons/Logo.svg" alt="Logo Learn Box" width="50">
+                    <small class="d-block mb-3 text-white">&copy; 2024-2025</small>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Información</h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1"><a class="link-light text-decoration-none" href="we.html">Nosotros</a>
+                        </li>
+                        <li class="mb-1"><a class="link-light text-decoration-none" href="focus.html">Enfoque</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Links más usados
+                    </h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1"><a class="link-light text-decoration-none" href="mymoocs.html">Mis
+                                Moocs</a>
+                        </li>
+                        <li class="mb-1"><a class="link-light text-decoration-none" href="moocs.html">Moocs</a>
+                        </li>
+                        <li class="mb-1"><a class="link-light text-decoration-none" href="plans.html">Suscripciones</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Redes Sociales</h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1"><a class="link-light text-decoration-none" href="https://www.instagram.com/"
+                                target="_blank">Instagram</a></li>
+                        <li class="mb-1"><a class="link-light text-decoration-none" href="https://www.facebook.com/"
+                                target="_blank">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
