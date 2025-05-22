@@ -1,406 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Módulo 1 demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo 1 | Diseño de Empaques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+<body class="text-dark">
+<div id="navbar"></div>
 
-<body>
-    <!-- Menu -->
-    <header class="bg-success">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <nav class="navbar navbar-expand-lg text-center text-light">
-                        <div class="container-fluid">
-                            <a class="navbar-brand me-5" href="index.html"><img src="Icons/Logo.svg" width="50"
-                                    alt="Logo"></a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <i class="bi bi-menu-down text-light"></i>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li>
-                                        <form class="d-flex" role="search">
-                                            <input class="form-control me-2 rounded-pill" type="search"
-                                                placeholder="Busca tu mooc..." aria-label="Search" />
-                                            <button class="btn btn-outline-light" type="submit">
-                                                <i class="bi bi-search"></i>
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                                <!-- como cambio su comportamiento en small -->
-                                <a class="nav-link me-3 my-3" href="moocs.html">Moocs</a>
-                                <a class="nav-link me-3 my-3" href="#">Avances</a>
-                                <a class="nav-link me-3 my-3" href="mymoocs.html">Mis moocs</a>
-                                <!-- p: cambiar de estado bell fill a bell-->
-                                <i type="button" class="bi bi-bell fs-3 me-3 my-3" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                </i>
-                                <!-- Modal, como chuchas le quito ese diseño horrible, la posiciono al lado del bell y le quito tanta opacidad-->
-                                <div class="modal fade text-black" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Bandeja de
-                                                    notificaciones</h1>
-                                            </div>
-                                            <div class="modal-body">
-                                                Sin notificaciones
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-success"
-                                                    data-bs-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="nav-link me-3 my-2" href="login.html">
-                                    <i class="bi bi-person-circle fs-3"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
-
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <!-- Título -->
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <div class="fs-3 border border-start border-0 border-3 border-success ps-2">
-                    Introducción al Diseño de Empaques
-                </div>
-            </div>
-            <div class="col">
-                <hr class="border border-success border-2">
-            </div>
-        </div>
-
-        <!-- Arreglar el video o determinar un espacio -->
-        <div class="col-md-12 p-3 bg-success rounded-4">
-            <div class="col bg-success-subtle rounded-4">
-                <div class="col p-2 d-flex justify-content-center">
-                    <video src="Vmoocs/Introducción.mp4" class="w-75" controls></video>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                    <div class="bg-warning w-50 margint rounded-4"></div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col">
-                <hr class="border border-success border-2">
-            </div>
-        </div>
-        <!-- Actividades -->
-        <div class="row">
-            <div class="col-md-12 col-lg-6 text-light mb-4">
-                <div class="bg-success-subtle p-4 rounded mb-3 h-100">
-                    <h2>Objetivos</h2>
-                    <hr class="border border-success-subtle border-2">
-                    <p class="ms-2 fs-5">Presentar el curso de diseño de empaques destacando su importancia en la
-                        industria actual, los conocimientos clave que los estudiantes adquirirán y cómo podrán
-                        aplicarlos para crear soluciones innovadoras y funcionales que impacten positivamente en
-                        el mercado.</p>
-                </div>
-            </div>
-            <!-- Subir Archivos -->
-
-            <div class="col-md-12 col-lg-6 text-light mb-4">
-                <div class="bg-success-subtle p-4 rounded mb-3 h-100">
-                    <h2>Actividades</h2>
-                    <hr class="border border-success-subtle border-2">
-                    <ol class="fs-5">
-                        <li>
-                            <p class="ms-2"><b>Caso de estudio interactivo:</b> Analiza un empaque icónico como el de
-                                Apple o Dove y responde: ¿Qué lo hace destacar?</p>
-                        </li>
-                        <li>
-                            <p class="ms-2"><b>Foro de discusión:</b> Comparte un empaque que te haya llamado la
-                                atención y explica por qué crees que funciona o no.</p>
-                        </li>
-                        <li>
-                            <p class="ms-2"><b>Mini-desafío:</b> Enumera cinco productos que compres frecuentemente en
-                                los comentarios. ¿Qué tienen en común sus empaques?</p>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- Evidencias -->
-            <div class="col-md-12 col-lg-12 text-light mb-4">
-                <div class="bg-success-subtle p-4 rounded mb-3 h-100 text-center">
-                    <h2>Evidencias</h2>
-                    <hr class="border border-success-subtle border-2">
-                    <p>Adjunta tu actividad en PNG para que el instructor te brinde una calificación y un Feedback para
-                        mejorar tu avance.</p>
-                    <div class="d-flex justify-content-center mt-4">
-                        <button type="submit" class="btn btn-outline-success w-25 fs-5">Subir archivos <i
-                                class="bi bi-cloud-arrow-up"></i></button>
-                    </div>
-                    <hr class="border border-success-subtle border-2">
-                    <div class="bg-success rounded-4 p-4">
-                        <h4>Archivos Adjuntos</h4>
-                        <ul>
-                            <li class="p-1 text-start fs-5">
-                                <p><a class="link-offset-2 fs-5 text-white">0012Wt_20224.png</a></p>
-                            </li>
-                            <li class="p-1 text-start">
-                                <p><a class="link-offset-2 fs-5 text-white">sd.png</a></p>
-                            </li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-4">
-                            <button type="submit" class="btn btn-outline-warning fs-5">Enviar archivos <i
-                                    class="bi bi-send"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Calificación -->
-            <div class="col-md-12 col-lg-6 text-light">
-                <div class="bg-success-subtle p-4 rounded mb-5 h-100 text-center">
-                    <h2>Calificación</h2>
-                    <hr class="border border-success-subtle border-2">
-                    <h4 class="text-center m-0">Rendimiento</h4>
-                    <div class="d-flex h-25 align-items-center">
-                        <h4 class="m-0">0%</h4>
-                        <div class="w-100 h-25 bg-danger rounded-5 ms-2 me-2">
-                            <div class="w-25 h-100 bg-success rounded-5"></div>
-                        </div>
-                        <h4 class="m-0">100%</h4>
-                    </div>
-                    <div>
-                        <h4 class="mt-0">Feedback</h4>
-                        <div class="bg-danger-subtle p-3 border rounded-4 text-start mb-5">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-person-circle fs-3 me-2"></i>
-                                <h3 class="mb-0">Ashlee</h3>
-                            </div>
-                            <div class="mb-1 text-body-secondary">Hace 39 Minutos</div>
-                            <p class="mt-3">¡Buen trabajo con las actividades! En el caso de estudio, tu análisis está
-                                claro, pero podrías profundizar más en cómo los elementos del diseño reflejan la
-                                identidad de la marca. En el foro, tus ejemplos son interesantes, ¿has considerado cómo
-                                influyen los colores o materiales en la percepción del producto? Y en el mini-desafío,
-                                ¡excelente selección! Sería genial si conectaras las similitudes con estrategias de
-                                branding. 👌🔥
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Siguientes módulos -->
-            <div class="col-md-12 col-lg-6 text-light">
-                <div class="bg-success-subtle p-3 rounded mb-3 h-100">
-                    <h2>Próximos módulos</h2>
-                    <hr class="border border-success-subtle border-2">
-                    <ul>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Fundamentos del Diseño Visual</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Materiales y Sostenibilidad</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Estrategias de Branding y Marketing</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Herramientas y Técnicas de Diseño</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Evaluación y Optimización</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Proyecto Final</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Extras y Recursos Complementarios</p>
-                            </a>
-                        </li>
-                    </ul>
-                    <hr class="border border-success-subtle border-2">
-                    <a href="documentation.html" class="text-light">
-                        <h2>Documentación
-                            <i class="bi bi-arrow-up-right fs-5 ms-2"></i>
-                        </h2>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="#" class="text-decoration-none text-light fs-5">
-                                <p class="ms-4">Imagen guía</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr class="border border-success-subtle border-2">
-        <!-- Foro -->
-        <div class="row">
-            <div class="col-12">
-                <div class="bg-success-subtle rounded-4 p-3 text-light">
-                    <h2>Foro</h2>
-                    <hr class="border border-success-subtle border-2">
-                    <div class="d-flex rounded-5 m-2 mb-4">
-                        <input type="text" class="w-100 w-50 rounded-5 me-3" placeholder="Comentar.."><i
-                            class="bi bi-send fs-3"></i>
-                    </div>
-                    <div class="bg-danger-subtle p-3 border rounded-4">
-                        <div class="d-flex align-items-center">
-                            <img width="30" height="30" src="Images/Final 2.png" class="float-start rounded-5 me-2">
-                            <h3 class="mb-0">Pepito pérez</h3>
-                        </div>
-                        <div class="mb-1 text-body-secondary">Hace 40 Minutos</div>
-                        <p class="mt-3">Este primer módulo me ha ayudado a comprender la importancia del empaque más
-                            allá de lo visual, destacando cómo influye en la experiencia del consumidor y la identidad
-                            de marca.
-                            <br>
-                            <br>
-                            1. Caso de estudio interactivo:
-                            El empaque de Apple es minimalista y elegante, transmitiendo lujo y tecnología. Su diseño no
-                            solo protege el producto, sino que crea una experiencia de unboxing única.
-                            <br>
-                            <br>
-                            2. Foro de discusión:
-                            Me llamó la atención el empaque de Dove. Sus colores suaves y tipografía accesible comunican
-                            bienestar e inclusión, conectando emocionalmente con los consumidores.
-                            <br>
-                            <br>
-                            3. Mini-desafío:
-                            Los cinco productos que compro frecuentemente (cereal, café, pasta, champú y galletas)
-                            tienen empaques funcionales y fáciles de usar, con colores que transmiten frescura y
-                            confianza.
-                            <br>
-                            <br>
-                            ¡Espero aplicar estos conceptos en mi propio trabajo creativo!
-                        </p>
-
-                        <div class="d-flex text-body-secondary">
-
-                            <i class="bi bi-hand-thumbs-up me-2"></i>
-                            <p>2</p>
-                            <i class="bi bi-hand-thumbs-down ms-2 me-2"></i>
-                            <p>3</p>
-                            <i class="bi bi-chat-left-text ms-2"></i>
-                        </div>
-                    </div>
-                    <div class="bg-danger-subtle p-3 border rounded-4 mt-4">
-                        <div class="d-flex align-items-center">
-                            <img width="30" height="30" src="Images/Final 3.png" class="float-start rounded-5 me-2">
-                            <h3 class="mb-0">Pepita pereza</h3>
-                        </div>
-                        <div class="mb-1 text-body-secondary">Hace 27 Minutos</div>
-                        <p class="mt-3">
-                            Estuvo bueno, esperemos que sea bueno el mooc
-                            <br>
-                            <br>
-                            1. Caso de estudio interactivo:
-                            El empaque de Apple me parece increíblemente elegante. La simplicidad y los materiales de
-                            calidad hacen que el producto se sienta premium, lo cual atrae mucho al consumidor.
-                            <br>
-                            <br>
-                            2. Foro de discusión:
-                            Me encanta el empaque de Dove. Los tonos suaves y la tipografía amigable me transmiten
-                            confianza y comodidad, lo cual refleja muy bien la filosofía de la marca.
-                            <br>
-                            <br>
-                            3. Mini-desafío:
-                            Los cinco productos que compro con frecuencia (té, crema, pasta, chocolate y leche) tienen
-                            empaques muy prácticos y colores que inspiran frescura y naturalidad. Esto realmente me
-                            influye al momento de elegir qué comprar.
-                        </p>
-
-                        <div class="d-flex text-body-secondary">
-
-                            <i class="bi bi-hand-thumbs-up me-2"></i>
-                            <p>5</p>
-                            <i class="bi bi-hand-thumbs-down ms-2 me-2"></i>
-                            <p>2</p>
-                            <i class="bi bi-chat-left-text ms-2"></i>
-                        </div>
-                    </div>
-                </div>
-                <hr class="border border-success-subtle border-2">
-            </div>
-        </div>
+  <div class="container py-5">
+    
+    <!-- TÍTULO -->
+    <div class="mb-4">
+      <h1 class="display-5 border-start border-4 border-success ps-3 fw-bold">Introducción al Diseño de Empaques</h1>
     </div>
 
-    <!-- Footer -->
-    <footer class="pt-4 pt-md-5 border-top bg-success text-white mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <!-- Cambiar color de logo a negro y el borde de los titulos que ocupen solo el largo de la letra-->
-                    <img class="mb-2" src="Icons/Logo.svg" alt="Logo Learn Box" width="50">
-                    <small class="d-block mb-3 text-white">&copy; 2024-2025</small>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Información</h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="we.html">Nosotros</a>
-                        </li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="focus.html">Enfoque</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Links más usados
-                    </h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="mymoocs.html">Mis
-                                Moocs</a>
-                        </li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="moocs.html">Moocs</a>
-                        </li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="plans.html">Suscripciones</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Redes Sociales</h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="https://www.instagram.com/"
-                                target="_blank">Instagram</a></li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="https://www.facebook.com/"
-                                target="_blank">Facebook</a></li>
-                    </ul>
-                </div>
-            </div>
+    <!-- VIDEO -->
+    <div class="mb-5">
+      <div class="ratio ratio-16x9 rounded shadow">
+        <video src="Vmoocs/Introducción.mp4" controls class="rounded"></video>
+      </div>
+    </div>
+
+    <!-- OBJETIVOS Y ACTIVIDADES -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Objetivos</h5>
+            <p class="card-text">Comprender la importancia del empaque como herramienta de comunicación visual y branding. Explorar cómo influye en la percepción y decisión de compra.</p>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Actividades</h5>
+            <ul class="mb-0">
+              <li>Analiza un empaque conocido: ¿por qué destaca?</li>
+              <li>Foro: comparte un empaque memorable y por qué lo elegiste.</li>
+              <li>Mini reto: 5 productos, ¿qué tienen en común sus empaques?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <!-- EVIDENCIAS -->
+    <div class="card border-start border-4 border-success rounded-3 shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Evidencias</h5>
+        <p class="card-text">Sube tus archivos PNG con la actividad resuelta para recibir retroalimentación personalizada.</p>
+        <div class="mb-3">
+          <button class="btn btn-outline-secondary me-2"><i class="bi bi-cloud-upload me-2"></i>Subir archivo</button>
+          <button class="btn btn-primary"><i class="bi bi-send me-2"></i>Enviar</button>
+        </div>
+        <ul class="list-unstyled">
+          <li>📎 <a href="#">0012Wt_20224.png</a></li>
+          <li>📎 <a href="#">sd.png</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROGRESO Y MÓDULOS -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Progreso</h5>
+            <p class="mb-2">Avance del módulo</p>
+            <div class="progress mb-4" style="height: 20px;">
+              <div class="progress-bar bg-primary" style="width: 25%;">25%</div>
+            </div>
+
+            <h5 class="fw-semibold">Feedback</h5>
+            <div class="d-flex align-items-start bg-light p-3 rounded">
+              <i class="bi bi-person-circle fs-4 me-3"></i>
+              <div>
+                <h6 class="mb-1">Ashlee</h6>
+                <p class="mb-0">Buen análisis en la actividad. Revisa cómo el empaque conecta con el público objetivo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Próximos Módulos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="link-primary text-decoration-none">Diseño Visual</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Materiales y Sostenibilidad</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Marketing y Branding</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Herramientas de Diseño</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Proyecto Final</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORO -->
+    <div class="card border-start border-4 border-success rounded-3 shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Foro del módulo</h5>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Escribe un comentario...">
+          <button class="btn btn-outline-secondary"><i class="bi bi-send"></i></button>
+        </div>
+
+        <div class="mb-3 d-flex bg-light rounded p-3">
+          <img src="Images/Final 2.png" alt="avatar" class="rounded-circle me-3" width="40" height="40">
+          <div>
+            <h6 class="mb-1">Pepito Pérez</h6>
+            <p class="mb-0">Me sorprendió cuánto comunica un buen empaque. Muy interesante.</p>
+          </div>
+        </div>
+
+        <div class="d-flex bg-light rounded p-3">
+          <img src="Images/Final 3.png" alt="avatar" class="rounded-circle me-3" width="40" height="40">
+          <div>
+            <h6 class="mb-1">Pepita Pereza</h6>
+            <p class="mb-0">Este módulo me hizo pensar en cómo elegimos productos. El empaque lo dice todo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<div id="footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>

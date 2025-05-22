@@ -1,307 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Módulos demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Módulos Demo - Diseño de Empaques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <!-- Menu -->
-    <header class="bg-success">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <nav class="navbar navbar-expand-lg text-center text-light">
-                        <div class="container-fluid">
-                            <a class="navbar-brand me-5" href="index.html"><img src="Icons/Logo.svg" width="50"
-                                    alt="Logo"></a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <i class="bi bi-menu-down text-light"></i>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li>
-                                        <form class="d-flex" role="search">
-                                            <input class="form-control me-2 rounded-pill" type="search"
-                                                placeholder="Busca tu mooc..." aria-label="Search" />
-                                            <button class="btn btn-outline-light" type="submit">
-                                                <i class="bi bi-search"></i>
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                                <!-- como cambio su comportamiento en small -->
-                                <a class="nav-link me-3 my-3" href="moocs.html">Moocs</a>
-                                <a class="nav-link me-3 my-3" href="#">Avances</a>
-                                <a class="nav-link me-3 my-3" href="mymoocs.html">Mis moocs</a>
-                                <!-- p: cambiar de estado bell fill a bell-->
-                                <i type="button" class="bi bi-bell fs-3 me-3 my-3" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                </i>
-                                <!-- Modal, como chuchas le quito ese diseño horrible, la posiciono al lado del bell y le quito tanta opacidad-->
-                                <div class="modal fade text-black" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Bandeja de
-                                                    notificaciones</h1>
-                                            </div>
-                                            <div class="modal-body">
-                                                Sin notificaciones
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-success"
-                                                    data-bs-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="nav-link me-3 my-2" href="login.html">
-                                    <i class="bi bi-person-circle fs-3"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
+<style>
+  article:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
 
-                </div>
-            </div>
-        </div>
+</style>
+
+<body class="bg-white text-dark">
+  <div id="navbar"></div>
+
+  <main class="container my-5">
+    <header class="mb-4">
+      <h1 class="fw-bold mb-2">Módulos</h1>
+      <p class="lead text-success-emphasis">Desarrollemos tus habilidades en diseño de empaques</p>
+      <hr class="border-success border-2" />
     </header>
 
-    <!-- Título -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-start mt-5">
-                <h1>Módulos</h1>
-                <p class="fs-5">Desarrollemos tus habilidades</p>
-            </div>
-            <hr class="border border-success border-2">
-        </div>
-    </div>
-    <!-- Container-->
-    <div class="container">
-        <div class="row bg-success text-light grid gap-0 row-gap-1 rounded-4 pb-5">
-            <!-- Módulo 1 -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center d-none d-md-block"></i>
-                    <div class="col p-4 d-flex flex-column">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Módulo 1</strong>
-                        <h3 class="mb-0">Introducción al Diseño de Empaques</h3>
-                        <div class="mb-1 text-body-secondary">30-45 Minutos <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">En este módulo, conocerás el mundo del diseño de empaques, su relevancia en el marketing y cómo influye en las decisiones de compra de los consumidores. Aprenderás sobre los diferentes tipos de empaques y su evolución, sentando las bases para comprender su papel estratégico.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-warning w-100 margint rounded-4">
-                </div>
-            </div>
-            <!-- Módulo 2 -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center"></i>
-                    <div class="col p-4 d-flex flex-column ">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Módulo 2</strong>
-                        <h3 class="mb-0">Fundamentos del Diseño Visual</h3>
-                        <div class="mb-1 text-body-secondary">45-60 Minutos <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">Aquí estudiarás los principios esenciales del diseño visual, como la teoría del color, la tipografía, y la composición. Te enseñaremos cómo estos elementos pueden mejorar la comunicación visual y cómo aplicarlos eficazmente en el diseño de empaques para atraer a los consumidores.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                    <div class="bg-warning w-50 margint rounded-4"></div>
-                </div>
-            </div>
-            <!-- Módulo 3 -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center"></i>
-                    <div class="col p-4 d-flex flex-column ">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Módulo 3</strong>
-                        <h3 class="mb-0">Materiales y Sostenibilidad</h3>
-                        <div class="mb-1 text-body-secondary">40-50 Minutos <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">En este módulo, explorarás los diferentes materiales utilizados en el diseño de empaques, incluyendo opciones sostenibles y ecológicas. Verás cómo elegir materiales adecuados para tus diseños y cómo incorporar prácticas responsables que reduzcan el impacto ambiental.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                    <div class="bg-warning w-50 margint rounded-4"></div>
-                </div>
-            </div>
-            <!-- Módulo 4 -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center"></i>
-                    <div class="col p-4 d-flex flex-column ">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Módulo 4</strong>
-                        <h3 class="mb-0">Estrategias de Branding y Marketing</h3>
-                        <div class="mb-1 text-body-secondary">45-60 Minutos <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">Aprenderás cómo el diseño de empaques juega un papel crucial en la construcción de la identidad de una marca. Veremos cómo usar el empaque para conectar con el público objetivo y mejorar las ventas, así como las estrategias de marketing relacionadas con el empaque.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                    <div class="bg-warning w-50 margint rounded-4"></div>
-                </div>
-            </div>
-            <!-- Módulo 5 -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center"></i>
-                    <div class="col p-4 d-flex flex-column ">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Módulo 5</strong>
-                        <h3 class="mb-0">Herramientas y Técnicas de Diseño</h3>
-                        <div class="mb-1 text-body-secondary">60-75 Minutos <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">Este módulo te enseñará las herramientas y técnicas clave que los diseñadores utilizan para crear empaques. Desde el uso de software como Adobe Illustrator hasta la creación de prototipos y mockups, aprenderás cómo transformar tus ideas en diseños funcionales y profesionales.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                    <div class="bg-warning w-50 margint rounded-4"></div>
-                </div>
-            </div>
-            <!-- Módulo 6 -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center"></i>
-                    <div class="col p-4 d-flex flex-column ">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Módulo 6</strong>
-                        <h3 class="mb-0">Evaluación y Optimización</h3>
-                        <div class="mb-1 text-body-secondary">45-60 Minutos <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">Aquí sabrás evaluar tus diseños de empaques mediante pruebas de usuario y retroalimentación. Verás cómo optimizar los empaques para mejorar su funcionalidad, atractivo y desempeño en el mercado, haciendo ajustes basados en datos y experiencias reales.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                    <div class="bg-warning w-50 margint rounded-4"></div>
-                </div>
-            </div>
-            <!-- Módulo 7 -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center"></i>
-                    <div class="col p-4 d-flex flex-column ">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Módulo 7</strong>
-                        <h3 class="mb-0">Proyecto Final</h3>
-                        <div class="mb-1 text-body-secondary">2-3 Horas <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">En el proyecto final, aplicarás todos los conocimientos adquiridos para diseñar un empaque completo. Este proyecto te permitirá demostrar tus habilidades de diseño, investigación y prototipado, creando una pieza que puedas incluir en tu portafolio profesional.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                    <div class="bg-warning w-50 margint rounded-4"></div>
-                </div>
-            </div>
-            <!-- Extra -->
-            <div class="col-md-12 p-3">
-                <div class="col bg-success-subtle d-flex rounded-4">
-                    <i class="bi bi-box display-5 ms-4 align-self-center"></i>
-                    <div class="col p-4 d-flex flex-column ">
-                        <strong class="d-inline-block mb-2 text-body-secondary">Extra</strong>
-                        <h3 class="mb-0">Extras y Recursos Complementarios</h3>
-                        <div class="mb-1 text-body-secondary">30-45 Minutos <i class="bi bi-alarm"></i></div>
-                        <p class="mb-auto">En este módulo adicional, exploraremos las tendencias emergentes en el diseño de empaques, desde tecnologías innovadoras hasta soluciones sostenibles. Estarás listo para anticipar el futuro del diseño de empaques y mantener tus creaciones al día con las últimas innovaciones.</p>
-                        <a href="modulo1.html"
-                            class="icon-link icon-link-hover text-body-emphasis text-decoration-none mt-2">
-                            Iniciar
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-danger w-100 margint rounded-4">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <hr class="border border-success border-2">
-            </div>
-        </div>
-    </div>
+    <!-- Módulo 1 -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 1</div>
+        <h3 class="h5 fw-semibold mb-1">Introducción al Diseño de Empaques</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 30-45 Minutos</p>
+        <p>Conoce el mundo del diseño de empaques, su relevancia en el marketing y cómo influye en las decisiones de compra.</p>
+        <a href="modulo1.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-modulo1" style="width: 0%;"></div>
+</div>
 
-<!-- Footer -->
-    <footer class="pt-4 pt-md-5 border-top bg-success text-white mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <!-- Cambiar color de logo a negro y el borde de los titulos que ocupen solo el largo de la letra-->
-                    <img class="mb-2" src="Icons/Logo.svg" alt="Logo Learn Box" width="50">
-                    <small class="d-block mb-3 text-white">&copy; 2024-2025</small>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Información</h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="we.html">Nosotros</a>
-                        </li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="focus.html">Enfoque</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Links más usados
-                    </h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="mymoocs.html">Mis
-                                Moocs</a>
-                        </li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="moocs.html">Moocs</a>
-                        </li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="plans.html">Suscripciones</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="border border-bottom border-0 border-3 border-success-subtle">Redes Sociales</h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="https://www.instagram.com/"
-                                target="_blank">Instagram</a></li>
-                        <li class="mb-1"><a class="link-light text-decoration-none" href="https://www.facebook.com/"
-                                target="_blank">Facebook</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+<button onclick="actualizarProgreso('modulo1', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+
+      </div>
+    </article>
+
+    <!-- Módulo 2 -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 2</div>
+        <h3 class="h5 fw-semibold mb-1">Fundamentos del Diseño Visual</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 45-60 Minutos</p>
+        <p>Estudia principios como teoría del color, tipografía y composición para mejorar la comunicación visual.</p>
+        <a href="modulo2.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-modulo2" style="width: 0%;"></div>
+</div>
+
+<button onclick="actualizarProgreso('modulo2', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 3 -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 3</div>
+        <h3 class="h5 fw-semibold mb-1">Materiales y Sostenibilidad</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 40-50 Minutos</p>
+        <p>Explora materiales usados en empaques, incluyendo opciones sostenibles y responsables con el ambiente.</p>
+        <a href="modulo3.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-modulo3" style="width: 0%;"></div>
+</div>
+
+<button onclick="actualizarProgreso('modulo3', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 4 -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 4</div>
+        <h3 class="h5 fw-semibold mb-1">Estrategias de Branding y Marketing</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 45-60 Minutos</p>
+        <p>Descubre cómo el empaque fortalece la identidad de marca y conecta con el público objetivo.</p>
+        <a href="modulo4.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-modulo4" style="width: 0%;"></div>
+</div>
+
+<button onclick="actualizarProgreso('modulo4', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 5 -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 5</div>
+        <h3 class="h5 fw-semibold mb-1">Herramientas y Técnicas de Diseño</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 60-75 Minutos</p>
+        <p>Aprende a usar herramientas como Illustrator y crea prototipos y mockups efectivos.</p>
+        <a href="modulo5.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-modulo5" style="width: 0%;"></div>
+</div>
+
+<button onclick="actualizarProgreso('modulo5', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 6 -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 6</div>
+        <h3 class="h5 fw-semibold mb-1">Evaluación y Optimización</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 45-60 Minutos</p>
+        <p>Evalúa tus diseños con pruebas y feedback para mejorarlos de manera estratégica.</p>
+        <a href="modulo6.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-modulo6" style="width: 0%;"></div>
+</div>
+
+<button onclick="actualizarProgreso('modulo6', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 7 -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 7</div>
+        <h3 class="h5 fw-semibold mb-1">Proyecto Final</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 2-3 Horas</p>
+        <p>Aplica todo lo aprendido creando un empaque completo para tu portafolio.</p>
+        <a href="modulo7.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-modulo7" style="width: 0%;"></div>
+</div>
+
+<button onclick="actualizarProgreso('modulo7', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+      </div>
+    </article>
+
+    <!-- Extras -->
+    <article class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Extra</div>
+        <h3 class="h5 fw-semibold mb-1">Recursos Complementarios</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> Variable</p>
+        <p>Tutoriales adicionales, plantillas y bibliografía para seguir profundizando.</p>
+        <a href="extras.html" class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Explorar <i class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+  <div class="progress-bar bg-success" id="progress-extras" style="width: 0%;"></div>
+</div>
+
+<button onclick="actualizarProgreso('extras', 100)" class="btn btn-outline-success-s mt-2">
+  Marcar como completado
+</button>
+
+      </div>
+    </article>
+    
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
