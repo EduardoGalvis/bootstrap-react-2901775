@@ -1,0 +1,75 @@
+<header class="bg-success">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-expand-lg text-center text-light mt-sm-3">
+          <div class="container-fluid">
+            <a class="navbar-brand me-5" href="index.html">
+              <img src="Icons/Logo.svg" width="50" alt="Logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="bi bi-menu-down text-light"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li style="position: relative;">
+                  <form class="d-flex" role="search" onsubmit="return false;">
+                    <div id="buscadorMoocs-wrapper" style="position: relative; width: 100%;">
+                      <input class="form-control me-2 text-light border-end-0 border-top-0 border-bottom-0"
+                        type="search" placeholder="Busca tu mooc..."
+                        aria-label="Search" id="buscadorMoocs" autocomplete="off"
+                        style="background: transparent; position: relative; z-index: 2;" />
+                      <button type="button" id="clearSearch"
+                        style="display:none; position:absolute; right:12px; top:50%; transform:translateY(-50%); background:transparent; border:none; z-index:4; padding:0;">
+                        <i class="bi bi-x-lg"></i>
+                      </button>
+                      <span id="autocompleteSugerido"
+                        style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: #bbb; pointer-events: none; z-index: 1; font-size: 1rem; font-family: inherit; padding-left: 0; white-space: pre;"></span>
+                      <div class="underline-animada"></div>
+                    </div>
+                  </form>
+                  <div id="resultadosBusqueda" class="list-group position-absolute w-100" style="z-index: 2000;"></div>
+                </li>
+              </ul>
+              <a class="nav-link me-3 my-3 text-center text-md-center" href="moocs.html">Moocs</a>
+              <a class="nav-link me-3 my-3 text-center text-md-center text-warning" href="plans.html">¡Da el suigiente paso!</a>
+              <a class="nav-link me-3 my-3 text-center text-md-center" href="mymoocs.html" id="misMoocsLink">Mis moocs</a>
+              <div class="position-relative">
+                <i type="button" id="bellBtn" class="bi bi-bell fs-3 me-3 my-3"></i>
+                <!-- Minimal Notification Box -->
+                <div id="notificationBox"
+                     class="notification-box position-absolute end-0 mt-2 d-none"
+                     style="width: 320px; z-index: 1050;">
+                  <div class="d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="fw-semibold text-dark">Notificaciones</span>
+                    <button class="btn-close" id="closeNotif" aria-label="Cerrar"></button>
+                  </div>
+                  <div class="notification-content px-3 pb-3 text-secondary small">
+                    Sin notificaciones
+                  </div>
+                </div>
+              </div>
+              <a class="nav-link me-3 my-2 botondeperfil" href="login.html">
+                <i class="bi bi-person-circle fs-3" id="profileIcon"></i>
+
+              </a>
+              
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Toast de bienvenida -->
+  <div id="loginSuccessToast"
+       class="position-absolute bg-white border rounded-3 shadow px-4 py-3 d-none"
+       style="z-index: 1055; transition: opacity 0.3s; opacity: 0;">
+    <div class="text-center">
+      <i class="bi bi-check-circle-fill text-success fs-2 mb-2 d-block"></i>
+      <strong class="d-block">Sesión iniciada correctamente</strong>
+      <small class="text-muted">¡Bienvenido de nuevo!</small>
+    </div>
+  </div>

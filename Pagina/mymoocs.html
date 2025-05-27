@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LearnBox demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100 overflow-x-hidden">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Contenido -->
+  <main class="flex-grow-1">
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Mis Moocs</h1>
+          <p>Todos tus cursos, desde el primero hasta el último en un solo lugar</p>
+          <hr class="border border-success border-2">
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <div
+          class="d-flex flex-column flex-lg-row mb-4 h-100 border-none rounded shadow-sm bg-success-subtle card card-animada">
+
+          <!-- Texto -->
+          <div class="p-4 d-flex flex-column flex-grow-1 position-static ">
+            <strong class="d-inline-block mb-2 text-body-secondary">Diseño</strong>
+            <h3 class="mb-0 text-white">Diseño de empaques</h3>
+            <div class="mb-1 text-body-secondary">2 Meses</div>
+            <p class="card-text mb-auto text-white">Persuade a los clientes con los diseños de tus empaques, sé
+              profesional y resalta los valores de tu marca</p>
+            <a href="insidemooc.html"
+              class="icon-link gap-1 icon-link-hover text-body-emphasis text-decoration-none mt-2">
+              Continúa
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+
+          <!-- Imagen -->
+          <div class="d-flex align-items-center justify-content-center p-4" style="min-width: 200px;">
+            <img width="180px" src="Images/img-uno.jpeg" style="max-height: 160px; object-fit: contain;" />
+          </div>
+
+        </div>
+      </div>
+
+
+      <hr class="border border-success border-2 mt-5">
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <a href="moocs.html" class="btn btn-outline-success-s w-50 w-md-25 w-lg-25">
+            Conoce nuevos moocs
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer" class="mt-auto"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
