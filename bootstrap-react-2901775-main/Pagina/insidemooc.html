@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Módulos Demo - Diseño de Empaques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body class="bg-white text-dark">
+  <div id="navbar"></div>
+
+  
+  <section class="p-5 text-center text-white position-relative fondo mb-5 shadow-lg">
+    <div class="mx-auto" style="max-width: 900px;">
+      <h1 class="display-3 fw-bold mb-5">Diseño de empaques</h1>
+            <h3 class="fw-normal mb-5">
+        Presenta tus productos con calidad y estrategia.<br>
+        Aprende a crear empaques que cautivan, comunican el valor de tu marca y destacan en el mercado.<br>
+        Domina técnicas profesionales, explora tendencias actuales y obtén una certificación digital para impulsar tu portafolio.
+      </h3>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+<button id="btnInscribirse" class="btn btn-outline-success-s position-relative overflow-hidden">
+  <span id="textoInscribirse">Inscribirse</span>
+  <span id="chulitoInscrito" class="d-none ms-2"><i class="bi bi-check-lg"></i></span>
+  <div id="barraProgresoInscripcion" class="barra-progreso-inscripcion" style="width: 0%;"></div>
+</button>
+
+      </div>
+      <div class="d-flex justify-content-center gap-4 flex-wrap fs-5 fw-semibold align-items-center text-secondary">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-people"></i>
+          <span>16,851 inscritos</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-star"></i>
+          <span>4,5 en calificación</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-calendar-check"></i>
+          <span>Fechas Flexibles</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-check"></i>
+          <span>Certificación digital</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container my-5">
+    <header class="mb-4">
+      <h1 class="fw-bold mb-2">Módulos</h1>
+      <p class="text-black">Desarrollemos tus habilidades en diseño de empaques</p>
+      <hr class="border-success border-2" />
+    </header>
+
+    <!-- Módulo 1 -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 1</div>
+        <h3 class="h5 fw-semibold mb-1">Introducción al Diseño de Empaques</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 30-45 Minutos</p>
+        <p>Conoce el mundo del diseño de empaques, su relevancia en el marketing y cómo influye en las decisiones de
+          compra.</p>
+        <a href="modulo1.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-modulo1" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('modulo1', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+
+      </div>
+    </article>
+
+    <!-- Módulo 2 -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 2</div>
+        <h3 class="h5 fw-semibold mb-1">Fundamentos del Diseño Visual</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 45-60 Minutos</p>
+        <p>Estudia principios como teoría del color, tipografía y composición para mejorar la comunicación visual.</p>
+        <a href="modulo2.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-modulo2" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('modulo2', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 3 -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 3</div>
+        <h3 class="h5 fw-semibold mb-1">Materiales y Sostenibilidad</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 40-50 Minutos</p>
+        <p>Explora materiales usados en empaques, incluyendo opciones sostenibles y responsables con el ambiente.</p>
+        <a href="modulo3.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-modulo3" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('modulo3', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 4 -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 4</div>
+        <h3 class="h5 fw-semibold mb-1">Estrategias de Branding y Marketing</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 45-60 Minutos</p>
+        <p>Descubre cómo el empaque fortalece la identidad de marca y conecta con el público objetivo.</p>
+        <a href="modulo4.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-modulo4" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('modulo4', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 5 -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 5</div>
+        <h3 class="h5 fw-semibold mb-1">Herramientas y Técnicas de Diseño</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 60-75 Minutos</p>
+        <p>Aprende a usar herramientas como Illustrator y crea prototipos y mockups efectivos.</p>
+        <a href="modulo5.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-modulo5" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('modulo5', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 6 -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 6</div>
+        <h3 class="h5 fw-semibold mb-1">Evaluación y Optimización</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 45-60 Minutos</p>
+        <p>Evalúa tus diseños con pruebas y feedback para mejorarlos de manera estratégica.</p>
+        <a href="modulo6.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-modulo6" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('modulo6', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+      </div>
+    </article>
+
+    <!-- Módulo 7 -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Módulo 7</div>
+        <h3 class="h5 fw-semibold mb-1">Proyecto Final</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> 2-3 Horas</p>
+        <p>Aplica todo lo aprendido creando un empaque completo para tu portafolio.</p>
+        <a href="modulo7.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Iniciar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-modulo7" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('modulo7', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+      </div>
+    </article>
+
+    <!-- Extras -->
+    <article
+      class="d-flex gap-3 bg-light border-start border-4 border-success rounded-3 shadow-sm p-4 mb-4 align-items-start">
+      <i class="bi bi-box fs-2 text-success mt-1 flex-shrink-0"></i>
+      <div class="flex-grow-1">
+        <div class="small text-muted fw-semibold">Extra</div>
+        <h3 class="h5 fw-semibold mb-1">Recursos Complementarios</h3>
+        <p class="text-muted small mb-2"><i class="bi bi-alarm"></i> Variable</p>
+        <p>Tutoriales adicionales, plantillas y bibliografía para seguir profundizando.</p>
+        <a href="extras.html"
+          class="btn btn-sm btn-link text-success fw-semibold p-0 d-inline-flex align-items-center gap-1">Explorar <i
+            class="bi bi-chevron-right"></i></a>
+        <div class="progress mt-3" style="height: 6px;">
+          <div class="progress-bar bg-success" id="progress-extras" style="width: 0%;"></div>
+        </div>
+
+        <button onclick="actualizarProgreso('extras', 100)" class="btn btn-outline-success-s mt-2 btn-marcar-completado">
+          Marcar como completado
+        </button>
+
+      </div>
+    </article>
+
+  </main>
+
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

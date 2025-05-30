@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo 1 | Diseño de Empaques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-dark">
+<div id="navbar"></div>
+
+  <div class="container py-5">
+    
+    <!-- TÍTULO -->
+    <div class="mb-4">
+      <h1 class="display-5 border-start border-4 border-success ps-3 fw-bold">Introducción al Diseño de Empaques</h1>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="mb-5">
+      <div class="ratio ratio-16x9 rounded shadow">
+        <video src="Vmoocs/Introducción.mp4" controls class="rounded"></video>
+      </div>
+    </div>
+
+    <!-- OBJETIVOS Y ACTIVIDADES -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Objetivos</h5>
+            <p class="card-text">Comprender la importancia del empaque como herramienta de comunicación visual y branding. Explorar cómo influye en la percepción y decisión de compra.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Actividades</h5>
+            <ul class="mb-0">
+              <li>Analiza un empaque conocido: ¿por qué destaca?</li>
+              <li>Foro: comparte un empaque memorable y por qué lo elegiste.</li>
+              <li>Mini reto: 5 productos, ¿qué tienen en común sus empaques?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVIDENCIAS -->
+    <div class="card border-start border-4 border-success rounded-3 shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Evidencias</h5>
+        <p class="card-text">Sube tus archivos PNG con la actividad resuelta para recibir retroalimentación personalizada.</p>
+        <div class="mb-3">
+          <button id="btnSubirArchivo" class="btn btn-outline-secondary me-2" type="button">
+            <i class="bi bi-cloud-upload me-2"></i>Subir archivo
+          </button>
+          <input type="file" id="inputArchivo" class="d-none" accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" />
+          <button class="btn btn-primary"><i class="bi bi-send me-2"></i>Enviar</button>
+        </div>
+        <ul class="list-unstyled" id="listaEvidencias">
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROGRESO Y MÓDULOS -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Progreso</h5>
+            <p class="mb-2">Avance del módulo</p>
+            <div class="progress mb-4" style="height: 20px;">
+              <div class="progress-bar bg-primary" style="width: 25%;">25%</div>
+            </div>
+
+            <h5 class="fw-semibold">Feedback</h5>
+            <div class="d-flex align-items-start bg-light p-3 rounded">
+              <i class="bi bi-person-circle fs-4 me-3"></i>
+              <div>
+                <h6 class="mb-1">Ashlee</h6>
+                <p class="mb-0">Buen análisis en la actividad. Revisa cómo el empaque conecta con el público objetivo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Próximos Módulos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="link-primary text-decoration-none">Diseño Visual</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Materiales y Sostenibilidad</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Marketing y Branding</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Herramientas de Diseño</a></li>
+              <li><a href="#" class="link-primary text-decoration-none">Proyecto Final</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORO -->
+    <div class="card border-start border-4 border-success rounded-3 shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Foro del módulo</h5>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control comentario" placeholder="Escribe un comentario...">
+          <button class="btn btn-outline-secondary subircomentario"><i class="bi bi-send"></i></button>
+        </div>
+
+        <div class="mb-3 d-flex bg-light rounded p-3">
+          <img src="Images/Final 2.png" alt="avatar" class="rounded-circle me-3" width="40" height="40">
+          <div>
+            <h6 class="mb-1">Pepito Pérez</h6>
+            <p class="mb-0">Me sorprendió cuánto comunica un buen empaque. Muy interesante.</p>
+          </div>
+        </div>
+
+        <div class="d-flex bg-light rounded p-3">
+          <img src="Images/Final 3.png" alt="avatar" class="rounded-circle me-3" width="40" height="40">
+          <div>
+            <h6 class="mb-1">Pepita Pereza</h6>
+            <p class="mb-0">Este módulo me hizo pensar en cómo elegimos productos. El empaque lo dice todo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<div id="footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

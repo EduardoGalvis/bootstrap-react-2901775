@@ -1,0 +1,378 @@
+.bg-success
+{
+    background-color: #015958!important;
+}
+.border-success
+{
+ border-color: #015958!important;
+}
+.bg-success-subtle
+{
+    background-color: #008F8C!important;
+}
+
+.btn-outline-success
+{
+    border-color: white;
+    color: white;
+}
+article:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.btn-outline-success-s
+{
+    border-color: #008F8C;
+    color: #008F8C;
+}
+.btn-outline-success-s:hover
+{
+    background-color: #008F8C;
+    color: white;
+}
+.btn-outline-success:hover
+{
+    color:rgb(0, 0, 0);
+    background-color: white;
+}
+.text-secondary
+{
+    color: rgb(146, 146, 146)!important;
+}
+.bg-danger-subtle
+{
+    background-color: #6387A6!important;
+}
+.fondo
+{
+    background-image: url(Images/img-uno.jpeg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+.fondo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Opacidad 50%, puedes ajustarla */
+    z-index: 1;
+}
+.fondo > * {
+    position: relative;
+    z-index: 2;
+}
+
+.margint{
+    height: 40px;
+}
+/* Section title decor */
+.section-title {
+  border-left: 5px solid #015958;
+  padding-left: 0.75rem;
+  font-weight: 600;
+}
+
+/* Cards with subtle shadow */
+
+/* Focus effect on inputs */
+.form-control:focus {
+  border-color: #008F8C !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 143, 140, 0.25);
+}
+
+/* Pencil icon cursor pointer */
+.bi-pencil {
+  cursor: pointer;
+}
+
+/* Icon size override */
+.fs-1 {
+  font-size: rem !important;
+}
+/* Variables de color para mantener coherencia y facilitar mantenimiento */
+:root {
+    --success-dark: #015958;
+    --success-medium: #008F8C;
+    --success-light: #b3e5e3;
+    --success-subtle: #008F8C; /* usado en fondo sutil */
+    --danger-subtle: #6387A6;
+    --text-light: #ffffff;
+}
+
+/* Reset básico para overflow-x */
+body {
+    overflow-x: hidden;
+}
+
+/* Overflow visible solo en dispositivos sm (>=576px y <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+        overflow-x: visible;
+    }
+}
+
+/* Fondo y sombra para contenedor de formulario */
+.form-container {
+    background-color: var(--success-subtle);
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(1, 89, 88, 0.3);
+}
+
+/* Encabezado del formulario */
+.form-header {
+    border-radius: 1rem 1rem 0 0;
+}
+
+/* Botón social (Google/Facebook) */
+.btn-social {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 2rem;
+    padding: 0;
+}
+
+.btn-social:hover,
+.btn-social:focus {
+    color: var(--success-medium);
+    outline: none;
+}
+
+/* Separador visual entre iconos sociales */
+.separator {
+    font-weight: 700;
+    user-select: none;
+}
+
+/* Focus visible */
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 143, 140, 0.5);
+    border-color: var(--success-medium);
+}
+
+/* Enlaces con hover accesible */
+a.link-light:hover,
+a.link-light:focus {
+    text-decoration: underline;
+    color: var(--success-medium);
+    outline: none;
+}
+
+/* Botón iniciar sesión */
+.btn-outline-success {
+    border-color: var(--text-light);
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+    background-color: var(--text-light);
+    color: #000;
+    outline: none;
+}
+
+/* Imagen con sombra */
+img.img-fluid {
+    box-shadow: 0 8px 20px rgba(1, 89, 88, 0.3);
+    border-radius: 0.5rem;
+}
+#btnInscribirse {
+  position: relative;
+  overflow: hidden;
+}
+
+.barra-progreso-inscripcion {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  height: 100%;
+  background: #008F8C;
+  z-index: 1;
+  transition: width 0.7s cubic-bezier(.77,0,.18,1);
+  border-radius: inherit;
+  opacity: 1;
+  pointer-events: none;
+}
+
+#btnInscribirse span, #btnInscribirse i {
+  position: relative;
+  z-index: 2; /* Muy importante: el texto y el chulito siempre encima de la barra */
+  transition: color 0.3s;
+}
+
+.btn-inscrito {
+  color: #fff !important;
+  border-color: #008F8C !important;
+  background-color: #008F8C !important; /* Fondo sólido */
+  transition: background 0.7s, color 0.3s;
+  opacity: 1 !important; /* Asegura que el botón sea completamente visible */
+}
+
+/* Puedes poner esto en tu archivo de estilos global */
+#resultadosBusqueda {
+  max-height: 320px;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-left: 5px solid #008F8C;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: none;
+}
+#resultadosBusqueda .list-group-item {
+  cursor: pointer;
+  color: #222;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+#resultadosBusqueda .list-group-item:hover,
+#resultadosBusqueda .list-group-item.active {
+  background: #015958;
+  color: #ffffff;
+}
+#buscadorMoocs::placeholder {
+  color: #fff !important;
+  opacity: 1;
+}
+#buscadorMoocs {
+  border-left: 2px solid #008F8C !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  position: relative;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  transition: border-color 0.3s;
+  z-index: 2;
+}
+
+#buscadorMoocs:focus {
+  outline: none;
+  border-left: 2px solid transparent !important;
+}
+
+#buscadorMoocs-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 40px;
+}
+
+.underline-animada {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #008F8C;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(.77,0,.18,1);
+  z-index: 3;
+  pointer-events: none;
+}
+
+#buscadorMoocs-wrapper.underline-active .underline-animada {
+  transform: scaleX(1);
+}
+#clearSearch i {
+  color: #fff !important;
+  font-size: 1.2rem;
+}
+.form-control.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25) !important; /* opcional: sombra roja */
+}
+/* Quitar el chulo/flecha verde de Bootstrap en campos válidos */
+.form-control.is-valid,
+.form-control:valid {
+  border-color: inherit !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Forzar fondo transparente en todas las tarjetas Bootstrap */
+.card {
+  --bs-card-bg: transparent !important;
+  border: none !important;
+}
+/* Minimal notification box */
+.notification-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(1, 89, 88, 0.10);
+  border: none;
+  min-height: 60px;
+  min-width: 220px;
+  max-width: 340px;
+  padding: 0;
+  transition: box-shadow 0.2s;
+}
+
+.notification-box .btn-close {
+  background: none;
+  border: none;
+  opacity: 0.6;
+  font-size: 1.1rem;
+  transition: opacity 0.2s;
+}
+.notification-box .btn-close:hover {
+  opacity: 1;
+}
+
+.notification-content {
+  padding-top: 0.5rem;
+  color: #666;
+}
+.profile-card {
+  background: #f8fafb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(1, 89, 88, 0.10);
+  color: #222;
+  border: none;
+}
+.profile-card hr {
+  border-color: #e0e0e0;
+}
+.profile-card .btn-outline-success {
+  border-color: #008F8C;
+  color: #008F8C;
+}
+.profile-card .btn-outline-success:hover {
+  background: #008F8C;
+  color: #fff;
+}
+.card.card-animada, .card.card-animada * {
+  transition: 
+    transform 0.25s cubic-bezier(.77,0,.18,1),
+    box-shadow 0.25s cubic-bezier(.77,0,.18,1),
+    filter 0.25s cubic-bezier(.77,0,.18,1);
+}
+
+.card.card-animada:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: brightness(1.04) saturate(1.1);
+  z-index: 2;
+}
+
+/* Opcional: efecto sutil en la imagen dentro de la card */
+.card.card-animada:hover img {
+  filter: brightness(1.08) saturate(1.2);
+  transition: filter 0.25s cubic-bezier(.77,0,.18,1);
+}
