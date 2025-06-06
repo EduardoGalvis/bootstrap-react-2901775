@@ -25,35 +25,10 @@
           <hr class="border border-success border-2">
         </div>
       </div>
-
-      <div class="col-md-6 mb-3">
-        <div
-          class="d-flex flex-column flex-lg-row mb-4 h-100 border-none rounded shadow-sm bg-success-subtle card card-animada">
-
-          <!-- Texto -->
-          <div class="p-4 d-flex flex-column flex-grow-1 position-static ">
-            <strong class="d-inline-block mb-2 text-body-secondary">Diseño</strong>
-            <h3 class="mb-0 text-white">Diseño de empaques</h3>
-            <div class="mb-1 text-body-secondary">2 Meses</div>
-            <p class="card-text mb-auto text-white">Persuade a los clientes con los diseños de tus empaques, sé
-              profesional y resalta los valores de tu marca</p>
-            <a href="insidemooc.html"
-              class="icon-link gap-1 icon-link-hover text-body-emphasis text-decoration-none mt-2">
-              Continúa
-              <i class="bi bi-chevron-right"></i>
-            </a>
-          </div>
-
-          <!-- Imagen -->
-          <div class="d-flex align-items-center justify-content-center p-4" style="min-width: 200px;">
-            <img width="180px" src="Images/img-uno.jpeg" style="max-height: 160px; object-fit: contain;" />
-          </div>
-
-        </div>
-      </div>
+      <div id="mis-moocs-list"></div>
+      <hr class="border border-success border-2 mt-3">
 
 
-      <hr class="border border-success border-2 mt-5">
 
       <div class="row">
         <div class="col d-flex justify-content-center">
@@ -70,6 +45,77 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.location.pathname.endsWith('mymoocs.html')) return;
+
+  const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+  // Usa el array global
+  const moocsDisponibles = window.data0 && window.data1 && window.data2
+    ? [...window.data0, ...window.data1, ...window.data2]
+    : [
+      {
+        id: 'modulo1',
+        categoria: 'Diseño',
+        titulo: 'Diseño de empaques',
+        duracion: '2 Meses',
+        descripcion: 'Persuade a los clientes con los diseños de tus empaques, sé profesional y resalta los valores de tu marca',
+        link: 'insidemooc.html',
+        img: 'Images/img-uno.jpeg'
+      }
+    ];
+
+  let inscripciones = {};
+  if (usuarioLogueado) {
+    inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || {};
+  }
+
+  // Filtra los moocs a los que el usuario está inscrito
+  const moocsInscritos = moocsDisponibles.filter(mooc =>
+    inscripciones[usuarioLogueado] && inscripciones[usuarioLogueado][mooc.id]
+  );
+
+  const moocsContainer = document.getElementById('mis-moocs-list');
+  moocsContainer.innerHTML = '';
+
+  if (moocsInscritos.length === 0) {
+    moocsContainer.innerHTML = `
+      <div class="bg-success-subtle p-4 rounded-3 text-center">
+      <h4 class="mb-3 text-light">No tienes moocs todavía</h3>
+        <h4 class="text-light">Inicia tu aventura inscribiendote en uno</h4>
+      </div>
+    `;
+  } else {
+    moocsInscritos.forEach(mooc => {
+      moocsContainer.innerHTML += `
+      <div class="col-md-6 mb-3 card mooc-card card card-animada">
+  <div class="d-flex flex-column flex-lg-row h-100 border-0 rounded shadow-sm bg-success-subtle overflow-hidden">
+    
+    <!-- Texto -->
+    <div class="p-4 d-flex flex-column flex-grow-1 position-static">
+      <strong class="d-inline-block mb-2 text-body-secondary">${mooc.categoria}</strong>
+      <h3 class="mb-0 text-white"></h3>
+      <div class="mb-1 text-body-secondary">${mooc.duracion}</div>
+      <p class="card-text mb-auto text-white">${mooc.descripcion}</p>
+      <a href="${mooc.link}" class="icon-link gap-1 icon-link-hover text-body-emphasis text-decoration-none mt-2">
+        Echa un vistazo
+        <i class="bi bi-chevron-right"></i>
+      </a>
+    </div>
+    
+    <!-- Imagen -->
+    <div class="d-flex align-items-center justify-content-center p-4" style="min-width: 200px;">
+      <img width="180px" src="${mooc.img}" style="max-height: 160px; object-fit: contain;" />
+    </div>
+    
+  </div>
+</div>
+
+  `;
+    });
+  }
+});
+</script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 // --- Declaración global ---
 const data0 = [
   {
+    id: 'modulo1',
     categoria: 'Diseño',
     titulo: 'Diseño de empaques',
     duracion: '2 Meses',
@@ -11,6 +12,7 @@ const data0 = [
 ];
 const data1 = [
   {
+    id: 'photoshop2024',
     categoria: 'Diseño',
     titulo: 'Photoshop 2024',
     duracion: '2 Meses',
@@ -19,6 +21,7 @@ const data1 = [
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/512px-Adobe_Photoshop_CC_icon.svg.png'
   },
   {
+    id: 'premiere2024',
     categoria: 'Diseño',
     titulo: 'Premiere Pro 2024',
     duracion: '3 Meses',
@@ -29,6 +32,7 @@ const data1 = [
 ];
 const data2 = [
   {
+    id: 'modulo1',
     categoria: 'Diseño',
     titulo: 'Diseño de empaques',
     duracion: '2 Meses',
@@ -37,6 +41,7 @@ const data2 = [
     img: 'Images/img-uno.jpeg'
   },
   {
+    id: 'premiere2024',
     categoria: 'Diseño',
     titulo: 'Premiere Pro 2024',
     duracion: '3 Meses',
@@ -45,20 +50,13 @@ const data2 = [
     img: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg'
   },
   {
+    id: 'photoshop2024',
     categoria: 'Diseño',
     titulo: 'Photoshop 2024',
     duracion: '2 Meses',
     descripcion: 'Manipula y edita imágenes a nivel profesional con Photoshop. Aprenderás hasta el último detalle para sacar provecho a tus fotografías',
     link: 'insidemooc.html',
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/512px-Adobe_Photoshop_CC_icon.svg.png'
-  },
-  {
-    categoria: 'Diseño',
-    titulo: 'Premiere Pro 2024',
-    duracion: '3 Meses',
-    descripcion: 'Edita de manera optima y con resultados increíbles en tu proyectos y videos',
-    link: 'insidemooc.html',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg'
   }
 ];
 
@@ -99,7 +97,9 @@ Promise.all([
       }
     });
   }
-
+window.data0 = data0;
+window.data1 = data1;
+window.data2 = data2;
   // TOAST DE BIENVENIDA
   const icon = document.getElementById('profileIcon');
   const toast = document.getElementById('loginSuccessToast');
@@ -720,355 +720,66 @@ function mostrarModalRegister() {
   };
 }
 document.addEventListener('DOMContentLoaded', () => {
-  // Botón de inscripción (tu código actual aquí)
   const btnInscribirse = document.getElementById('btnInscribirse');
+  if (!btnInscribirse) return; // Solo ejecuta en la página de inscripción
+
   const textoInscribirse = document.getElementById('textoInscribirse');
   const chulitoInscrito = document.getElementById('chulitoInscrito');
   const barra = document.getElementById('barraProgresoInscripcion');
+  const moocId = btnInscribirse.getAttribute('data-mooc-id') || 'modulo1';
 
-  if (btnInscribirse) {
-    btnInscribirse.addEventListener('click', function (e) {
-      const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-      // ANIMACIÓN: barra de progreso y color
-      if (barra) {
-        barra.style.width = '100%';
-      }
-      btnInscribirse.classList.add('btn-animando');
-      setTimeout(() => {
-        btnInscribirse.classList.remove('btn-animando');
-      }, 700);
+  function marcarComoInscrito() {
+    if (barra) barra.style.width = '100%';
+    btnInscribirse.classList.add('btn-inscrito');
+    if (textoInscribirse) textoInscribirse.textContent = "Inscrito";
+    if (chulitoInscrito) chulitoInscrito.classList.remove('d-none');
+    btnInscribirse.disabled = true;
+  }
 
-      if (!usuarioLogueado) {
-        if (barra) {
-          setTimeout(() => {
-            barra.style.width = '0%';
-          }, 700);
-        }
-        e.preventDefault();
-        mostrarModalLogin();
-        return false;
-      }
-
-      // Guardar inscripción en localStorage
-      let inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || {};
-      inscripciones[usuarioLogueado] = true;
-      localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
-
-      // Cambia a "Inscrito" with chulito
-      btnInscribirse.classList.add('btn-inscrito');
-      if (textoInscribirse) textoInscribirse.textContent = "Inscrito";
-      if (chulitoInscrito) chulitoInscrito.classList.remove('d-none');
-      btnInscribirse.disabled = true;
-    });
-
+  function estaInscrito() {
     const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+    if (!usuarioLogueado) return false;
+    const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || {};
+    return inscripciones[usuarioLogueado] && inscripciones[usuarioLogueado][moocId];
+  }
+
+  // Al cargar, revisa si ya está inscrito
+  if (estaInscrito()) {
+    marcarComoInscrito();
+  }
+
+  // Al hacer click en inscribirse
+  btnInscribirse.addEventListener('click', function (e) {
+    const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+    if (!usuarioLogueado) {
+      if (barra) setTimeout(() => { barra.style.width = '0%'; }, 700);
+      e.preventDefault();
+      mostrarModalLogin();
+      return false;
+    }
+
+    if (barra) barra.style.width = '100%';
+    btnInscribirse.classList.add('btn-animando');
+    setTimeout(() => { btnInscribirse.classList.remove('btn-animando'); }, 700);
+
+    // Guarda la inscripción correctamente
     let inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || {};
-    if (usuarioLogueado && inscripciones[usuarioLogueado]) {
-      // Ya inscrito: deja el botón en modo "Inscrito"
-      if (barra) barra.style.width = '100%';
-      btnInscribirse.classList.add('btn-inscrito');
-      if (textoInscribirse) textoInscribirse.textContent = "Inscrito";
-      if (chulitoInscrito) chulitoInscrito.classList.remove('d-none');
-      btnInscribirse.disabled = true;
-    }
-  }
+    if (!inscripciones[usuarioLogueado]) inscripciones[usuarioLogueado] = {};
+    inscripciones[usuarioLogueado][moocId] = true;
+    localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
 
-  // --- SUBIR ARCHIVOS ---
-  const btnSubirArchivo = document.getElementById('btnSubirArchivo');
-  const inputArchivo = document.getElementById('inputArchivo');
-  const listaEvidencias = document.getElementById('listaEvidencias');
-  const btnEnviarEvidencia = document.querySelector('.btn.btn-primary i.bi-send')?.closest('button');
-
-  // Controla los archivos subidos en memoria (solo para la sesión actual)
-  let archivosSubidos = [];
-
-  // Verifica si hay sesión activa
-  function usuarioLogueado() {
-    return sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-  }
-
-  // Subir archivo solo si hay sesión
-  if (btnSubirArchivo && inputArchivo && listaEvidencias) {
-    btnSubirArchivo.addEventListener('click', () => {
-      if (!usuarioLogueado()) {
-        mostrarModalLogin();
-        return;
-      }
-      inputArchivo.click();
-    });
-
-    inputArchivo.addEventListener('change', (e) => {
-      if (!usuarioLogueado()) {
-        mostrarModalLogin();
-        inputArchivo.value = '';
-        return;
-      }
-      const files = Array.from(e.target.files);
-      files.forEach(file => {
-        archivosSubidos.push(file.name);
-        const li = document.createElement('li');
-        li.innerHTML = `📎 <a href="#">${file.name}</a>`;
-        listaEvidencias.appendChild(li);
-      });
-      inputArchivo.value = '';
-    });
-  }
-
-  // Modal de confirmación de envío de evidencia
-  function mostrarModalEvidenciaEnviada(cantidad) {
-    let modalDiv = document.getElementById('modalEvidenciaEnviada');
-    if (!modalDiv) {
-      modalDiv = document.createElement('div');
-      modalDiv.innerHTML = `
-        <div class="modal fade" id="modalEvidenciaEnviada" tabindex="-1" aria-labelledby="modalEvidenciaEnviadaLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-success-subtle">
-              <div class="modal-header bg-success text-light">
-                <h5 class="modal-title" id="modalEvidenciaEnviadaLabel"></h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-              </div>
-              <div class="modal-body text-center">
-                <i class="bi bi-check-circle-fill text-success fs-1 mb-3"></i>
-                <p class="mb-0">Pronto recibirás retroalimentación.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(modalDiv);
-    }
-    // Cambia el título según la cantidad de archivos
-    const titulo = document.getElementById('modalEvidenciaEnviadaLabel');
-    if (titulo) {
-      titulo.textContent = cantidad > 1 ? '¡Archivos enviados!' : '¡Archivo enviado!';
-    }
-    const modal = new bootstrap.Modal(document.getElementById('modalEvidenciaEnviada'));
-    modal.show();
-  }
-
-  // Enviar solo si hay archivos y sesión
-  if (btnEnviarEvidencia) {
-    btnEnviarEvidencia.addEventListener('click', function(e) {
+    marcarComoInscrito();
+  });
+});
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('#misMoocsLink');
+  if (link) {
+    const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+    if (!usuarioLogueado) {
       e.preventDefault();
-      if (!usuarioLogueado()) {
-        mostrarModalLogin();
-        return;
-      }
-      if (archivosSubidos.length === 0) {
-        // Opcional: feedback visual
-        btnEnviarEvidencia.classList.add('shake');
-        setTimeout(() => btnEnviarEvidencia.classList.remove('shake'), 500);
-        return;
-      }
-      mostrarModalEvidenciaEnviada(archivosSubidos.length);
-      // Limpia la lista visual y el array después de enviar
-      archivosSubidos = [];
-      if (listaEvidencias) listaEvidencias.innerHTML = '';
-    });
-  }
-
-  // --- COMENTARIOS DEL FORO ---
-  const inputComentario = document.querySelector('.comentario');
-  const btnSubirComentario = document.querySelector('.subircomentario');
-  if (inputComentario && btnSubirComentario) {
-    btnSubirComentario.addEventListener('click', function(e) {
-      e.preventDefault();
-      const email = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-      const texto = inputComentario.value.trim();
-      let nombreUsuario = email;
-      if (email) {
-        const userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
-        if (userData.name && userData.name.trim() !== "") {
-          nombreUsuario = userData.name;
-        }
-      }
-
-      if (!email) {
-        mostrarModalLogin();
-        return;
-      }
-      if (!texto) {
-        inputComentario.classList.add('is-invalid');
-        setTimeout(() => inputComentario.classList.remove('is-invalid'), 1000);
-        return;
-      }
-
-      // --- GUARDAR COMENTARIO EN LOCALSTORAGE ---
-      const comentariosKey = 'comentarios_' + email;
-      const nuevoComentario = {
-  nombre: nombreUsuario,
-  texto: texto,
-  fecha: new Date().toISOString(),
-  email: email
-};
-      let comentarios = JSON.parse(localStorage.getItem(comentariosKey)) || [];
-      comentarios.push(nuevoComentario);
-      localStorage.setItem(comentariosKey, JSON.stringify(comentarios));
-
-      // Mostrar el comentario en el foro
-      agregarComentarioAlForo(nuevoComentario);
-
-      inputComentario.value = '';
-    });
-
-    // Permite enviar con Enter
-    inputComentario.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        btnSubirComentario.click();
-      }
-    });
-
-    // --- CARGAR COMENTARIOS AL INICIAR ---
-    const email = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-    if (email) {
-      const comentariosKey = 'comentarios_' + email;
-      const comentarios = JSON.parse(localStorage.getItem(comentariosKey)) || [];
-      comentarios.forEach(comentario => agregarComentarioAlForo(comentario));
+      mostrarModalLogin();
+      return false;
     }
-  }
-
-  // Función para mostrar un comentario en el foro
-  function agregarComentarioAlForo(comentario) {
-    const foroCardBody = document.querySelector('.subircomentario')?.closest('.card-body');
-    const inputGroup = foroCardBody?.querySelector('.input-group');
-    if (!foroCardBody || !inputGroup) return;
-
-    // Siempre usa la imagen y el nombre actual del perfil
-    let avatar = "Icons/Logo.svg";
-    let nombreUsuario = comentario.email;
-    if (comentario.email) {
-      const userData = JSON.parse(localStorage.getItem('userData_' + comentario.email)) || {};
-      if (userData.profilePic) avatar = userData.profilePic;
-      if (userData.name && userData.name.trim() !== "") nombreUsuario = userData.name;
-    }
-
-    // Crea un id único para el comentario (por fecha y email)
-    const comentarioId = `${comentario.email}_${comentario.fecha}`;
-
-    const comentarioDiv = document.createElement('div');
-    comentarioDiv.className = 'mb-3 d-flex bg-light rounded p-3 align-items-start';
-    comentarioDiv.id = comentarioId;
-
-    // Solo el autor puede ver el botón eliminar
-    const usuarioActual = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-    const puedeEliminar = usuarioActual === comentario.email;
-
-    comentarioDiv.innerHTML = `
-      <img src="${avatar}" alt="avatar" class="rounded-circle me-3" width="40" height="40">
-      <div class="flex-grow-1">
-        <h6 class="mb-1">${nombreUsuario}</h6>
-        <p class="mb-0">${comentario.texto}</p>
-        <small class="text-muted">${new Date(comentario.fecha).toLocaleString()}</small>
-      </div>
-      ${puedeEliminar ? `
-        <button class="btn btn-sm btn-outline-danger ms-2 eliminar-comentario" title="Eliminar comentario">
-          <i class="bi bi-trash"></i>
-        </button>
-      ` : ''}
-    `;
-    foroCardBody.insertBefore(comentarioDiv, inputGroup.nextElementSibling);
-
-    // Evento para eliminar
-    if (puedeEliminar) {
-      comentarioDiv.querySelector('.eliminar-comentario').addEventListener('click', function() {
-        eliminarComentario(comentario);
-      });
-    }
+    // Si está logueado, deja que el enlace funcione normalmente
   }
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const nameInput = document.getElementById('userName');
-  const genderSelect = document.getElementById('userGender');
-  const ageInput = document.getElementById('userAge');
-  const email = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
-  let userData = {};
-
-  if (email) {
-    userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
-
-    // Cargar nombre
-    if (nameInput && userData.name) {
-      nameInput.value = userData.name;
-    }
-    // Cargar género
-    if (genderSelect && userData.gender) {
-      genderSelect.value = userData.gender;
-    }
-    // Cargar edad
-    if (ageInput && userData.age) {
-      ageInput.value = userData.age;
-    }
-  }
-
-  // Guardar nombre al cambiar
-  if (nameInput) {
-    nameInput.addEventListener('change', function() {
-      if (email) {
-        userData.name = nameInput.value.trim();
-        localStorage.setItem('userData_' + email, JSON.stringify(userData));
-      }
-    });
-  }
-  // Guardar género al cambiar
-  if (genderSelect) {
-    genderSelect.addEventListener('change', function() {
-      if (email) {
-        userData.gender = genderSelect.value;
-        localStorage.setItem('userData_' + email, JSON.stringify(userData));
-      }
-    });
-  }
-  // Guardar edad al cambiar
-  if (ageInput) {
-    ageInput.addEventListener('change', function() {
-      if (email) {
-        userData.age = ageInput.value;
-        localStorage.setItem('userData_' + email, JSON.stringify(userData));
-      }
-    });
-  }
-});
-document.addEventListener('DOMContentLoaded', () => {
-  const email = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
-  const profilePicInput = document.getElementById('profilePicInput');
-  const profilePic = document.getElementById('profilePic');
-  let userData = {};
-
-  if (email) {
-    userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
-    // Mostrar imagen guardada
-    if (profilePic && userData.profilePic) {
-      profilePic.src = userData.profilePic;
-    }
-  }
-
-  // Cambiar foto de perfil
-  if (profilePicInput && profilePic) {
-    profilePicInput.addEventListener('change', function() {
-      const file = this.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        profilePic.src = e.target.result;
-        if (email) {
-          userData.profilePic = e.target.result;
-          localStorage.setItem('userData_' + email, JSON.stringify(userData));
-        }
-      };
-      reader.readAsDataURL(file);
-    });
-  }
-});
-
-// Función para eliminar comentario
-function eliminarComentario(comentario) {
-  const comentariosKey = 'comentarios_' + comentario.email;
-  let comentarios = JSON.parse(localStorage.getItem(comentariosKey)) || [];
-  // Filtra por fecha exacta y texto para evitar eliminar otros comentarios
-  comentarios = comentarios.filter(c => !(c.fecha === comentario.fecha && c.texto === comentario.texto));
-  localStorage.setItem(comentariosKey, JSON.stringify(comentarios));
-  // Elimina del DOM
-  const comentarioId = `${comentario.email}_${comentario.fecha}`;
-  const comentarioDiv = document.getElementById(comentarioId);
-  if (comentarioDiv) comentarioDiv.remove();
-}
