@@ -57,6 +57,15 @@ const data2 = [
     descripcion: 'Manipula y edita imágenes a nivel profesional con Photoshop. Aprenderás hasta el último detalle para sacar provecho a tus fotografías',
     link: 'insidemooc.html',
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/512px-Adobe_Photoshop_CC_icon.svg.png'
+  },
+  {
+    id: 'premiere2024b',
+    categoria: 'Diseño',
+    titulo: 'Premiere Pro 2024',
+    duracion: '3 Meses',
+    descripcion: 'Edita de manera optima y con resultados increíbles en tu proyectos y videos',
+    link: 'insidemooc.html',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg'
   }
 ];
 
@@ -97,9 +106,7 @@ Promise.all([
       }
     });
   }
-window.data0 = data0;
-window.data1 = data1;
-window.data2 = data2;
+
   // TOAST DE BIENVENIDA
   const icon = document.getElementById('profileIcon');
   const toast = document.getElementById('loginSuccessToast');
@@ -121,7 +128,18 @@ window.data2 = data2;
       }, 3500);
     }, 100);
   }
-
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('#misMoocsLink');
+  if (link) {
+    const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+    if (!usuarioLogueado) {
+      e.preventDefault();
+      mostrarModalLogin();
+      return false;
+    }
+    // Si está logueado, deja que el enlace funcione normalmente
+  }
+});
   // Buscador predictivo de moocs
   const todosLosMoocs = [...data0, ...data1, ...data2];
   const buscador = document.getElementById('buscadorMoocs');
@@ -392,9 +410,20 @@ function actualizarProgreso(moduloId, porcentaje) {
     return;
   }
 
-  localStorage.setItem(moduloId, porcentaje);
+  // Guarda el progreso por usuario y módulo
+  let progresoUsuarios = JSON.parse(localStorage.getItem('progresoUsuarios')) || {};
+  if (!progresoUsuarios[usuarioLogueado]) progresoUsuarios[usuarioLogueado] = {};
+  progresoUsuarios[usuarioLogueado][moduloId] = porcentaje;
+  localStorage.setItem('progresoUsuarios', JSON.stringify(progresoUsuarios));
+
   const barra = document.getElementById(`progress-${moduloId}`);
   if (barra) barra.style.width = porcentaje + "%";
+
+  // Si es el primer módulo y está al 100%, muestra el botón de certificarse
+  if (moduloId === "modulo1" && porcentaje === 100) {
+    const btnCertificarse = document.getElementById('btnCertificarse');
+    if (btnCertificarse) btnCertificarse.classList.remove('d-none');
+  }
 }
 
 
@@ -721,65 +750,473 @@ function mostrarModalRegister() {
 }
 document.addEventListener('DOMContentLoaded', () => {
   const btnInscribirse = document.getElementById('btnInscribirse');
-  if (!btnInscribirse) return; // Solo ejecuta en la página de inscripción
-
   const textoInscribirse = document.getElementById('textoInscribirse');
   const chulitoInscrito = document.getElementById('chulitoInscrito');
   const barra = document.getElementById('barraProgresoInscripcion');
-  const moocId = btnInscribirse.getAttribute('data-mooc-id') || 'modulo1';
 
-  function marcarComoInscrito() {
-    if (barra) barra.style.width = '100%';
-    btnInscribirse.classList.add('btn-inscrito');
-    if (textoInscribirse) textoInscribirse.textContent = "Inscrito";
-    if (chulitoInscrito) chulitoInscrito.classList.remove('d-none');
-    btnInscribirse.disabled = true;
-  }
+  if (btnInscribirse) {
+    btnInscribirse.addEventListener('click', function (e) {
+      const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+      const moocId = btnInscribirse.getAttribute('data-mooc-id'); // <-- obtiene el id del mooc
 
-  function estaInscrito() {
+      // ANIMACIÓN: barra de progreso y color
+      if (barra) {
+        barra.style.width = '100%';
+      }
+      btnInscribirse.classList.add('btn-animando');
+      setTimeout(() => {
+        btnInscribirse.classList.remove('btn-animando');
+      }, 700);
+
+      if (!usuarioLogueado) {
+        if (barra) {
+          setTimeout(() => {
+            barra.style.width = '0%';
+          }, 700);
+        }
+        e.preventDefault();
+        mostrarModalLogin();
+        return false;
+      }
+
+      // Guardar inscripción en localStorage (CORREGIDO)
+      let inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || {};
+      if (!inscripciones[usuarioLogueado]) inscripciones[usuarioLogueado] = {};
+      inscripciones[usuarioLogueado][moocId] = true;
+      localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
+
+      // Cambia a "Inscrito" with chulito
+      btnInscribirse.classList.add('btn-inscrito');
+      if (textoInscribirse) textoInscribirse.textContent = "Inscrito";
+      if (chulitoInscrito) chulitoInscrito.classList.remove('d-none');
+      btnInscribirse.disabled = true;
+    });
+
     const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-    if (!usuarioLogueado) return false;
-    const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || {};
-    return inscripciones[usuarioLogueado] && inscripciones[usuarioLogueado][moocId];
-  }
-
-  // Al cargar, revisa si ya está inscrito
-  if (estaInscrito()) {
-    marcarComoInscrito();
-  }
-
-  // Al hacer click en inscribirse
-  btnInscribirse.addEventListener('click', function (e) {
-    const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-    if (!usuarioLogueado) {
-      if (barra) setTimeout(() => { barra.style.width = '0%'; }, 700);
-      e.preventDefault();
-      mostrarModalLogin();
-      return false;
-    }
-
-    if (barra) barra.style.width = '100%';
-    btnInscribirse.classList.add('btn-animando');
-    setTimeout(() => { btnInscribirse.classList.remove('btn-animando'); }, 700);
-
-    // Guarda la inscripción correctamente
     let inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || {};
-    if (!inscripciones[usuarioLogueado]) inscripciones[usuarioLogueado] = {};
-    inscripciones[usuarioLogueado][moocId] = true;
-    localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
-
-    marcarComoInscrito();
-  });
-});
-document.addEventListener('click', function(e) {
-  const link = e.target.closest('#misMoocsLink');
-  if (link) {
-    const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
-    if (!usuarioLogueado) {
-      e.preventDefault();
-      mostrarModalLogin();
-      return false;
+    if (usuarioLogueado && inscripciones[usuarioLogueado]) {
+      // Ya inscrito: deja el botón en modo "Inscrito"
+      if (barra) barra.style.width = '100%';
+      btnInscribirse.classList.add('btn-inscrito');
+      if (textoInscribirse) textoInscribirse.textContent = "Inscrito";
+      if (chulitoInscrito) chulitoInscrito.classList.remove('d-none');
+      btnInscribirse.disabled = true;
     }
-    // Si está logueado, deja que el enlace funcione normalmente
+  }
+
+  // --- SUBIR ARCHIVOS ---
+  const btnSubirArchivo = document.getElementById('btnSubirArchivo');
+  const inputArchivo = document.getElementById('inputArchivo');
+  const listaEvidencias = document.getElementById('listaEvidencias');
+  const btnEnviarEvidencia = document.querySelector('.btn.btn-primary i.bi-send')?.closest('button');
+
+  // Controla los archivos subidos en memoria (solo para la sesión actual)
+  let archivosSubidos = [];
+
+  // Verifica si hay sesión activa
+  function usuarioLogueado() {
+    return sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+  }
+
+  // Subir archivo solo si hay sesión
+  if (btnSubirArchivo && inputArchivo && listaEvidencias) {
+    btnSubirArchivo.addEventListener('click', () => {
+      if (!usuarioLogueado()) {
+        mostrarModalLogin();
+        return;
+      }
+      inputArchivo.click();
+    });
+
+    inputArchivo.addEventListener('change', (e) => {
+      if (!usuarioLogueado()) {
+        mostrarModalLogin();
+        inputArchivo.value = '';
+        return;
+      }
+      const files = Array.from(e.target.files);
+      files.forEach(file => {
+        archivosSubidos.push(file.name);
+        const li = document.createElement('li');
+        li.innerHTML = `📎 <a href="#">${file.name}</a>`;
+        listaEvidencias.appendChild(li);
+      });
+      inputArchivo.value = '';
+    });
+  }
+
+  // Modal de confirmación de envío de evidencia
+  function mostrarModalEvidenciaEnviada(cantidad) {
+    let modalDiv = document.getElementById('modalEvidenciaEnviada');
+    if (!modalDiv) {
+      modalDiv = document.createElement('div');
+      modalDiv.innerHTML = `
+        <div class="modal fade" id="modalEvidenciaEnviada" tabindex="-1" aria-labelledby="modalEvidenciaEnviadaLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-success-subtle">
+              <div class="modal-header bg-success text-light">
+                <h5 class="modal-title" id="modalEvidenciaEnviadaLabel"></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body text-center">
+                <i class="bi bi-check-circle-fill text-success fs-1 mb-3"></i>
+                <p class="mb-0">Pronto recibirás retroalimentación.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modalDiv);
+    }
+    // Cambia el título según la cantidad de archivos
+    const titulo = document.getElementById('modalEvidenciaEnviadaLabel');
+    if (titulo) {
+      titulo.textContent = cantidad > 1 ? '¡Archivos enviados!' : '¡Archivo enviado!';
+    }
+    const modal = new bootstrap.Modal(document.getElementById('modalEvidenciaEnviada'));
+    modal.show();
+  }
+
+  // Enviar solo si hay archivos y sesión
+  if (btnEnviarEvidencia) {
+    btnEnviarEvidencia.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (!usuarioLogueado()) {
+        mostrarModalLogin();
+        return;
+      }
+      if (archivosSubidos.length === 0) {
+        // Opcional: feedback visual
+        btnEnviarEvidencia.classList.add('shake');
+        setTimeout(() => btnEnviarEvidencia.classList.remove('shake'), 500);
+        return;
+      }
+      mostrarModalEvidenciaEnviada(archivosSubidos.length);
+      // Limpia la lista visual y el array después de enviar
+      archivosSubidos = [];
+      if (listaEvidencias) listaEvidencias.innerHTML = '';
+    });
+  }
+
+  // --- COMENTARIOS DEL FORO ---
+  const inputComentario = document.querySelector('.comentario');
+  const btnSubirComentario = document.querySelector('.subircomentario');
+  if (inputComentario && btnSubirComentario) {
+    btnSubirComentario.addEventListener('click', function(e) {
+      e.preventDefault();
+      const email = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+      const texto = inputComentario.value.trim();
+      let nombreUsuario = email;
+      if (email) {
+        const userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
+        if (userData.name && userData.name.trim() !== "") {
+          nombreUsuario = userData.name;
+        }
+      }
+
+      if (!email) {
+        mostrarModalLogin();
+        return;
+      }
+      if (!texto) {
+        inputComentario.classList.add('is-invalid');
+        setTimeout(() => inputComentario.classList.remove('is-invalid'), 1000);
+        return;
+      }
+
+      // --- GUARDAR COMENTARIO EN LOCALSTORAGE ---
+      const comentariosKey = 'comentarios_' + email;
+      const nuevoComentario = {
+  nombre: nombreUsuario,
+  texto: texto,
+  fecha: new Date().toISOString(),
+  email: email
+};
+      let comentarios = JSON.parse(localStorage.getItem(comentariosKey)) || [];
+      comentarios.push(nuevoComentario);
+      localStorage.setItem(comentariosKey, JSON.stringify(comentarios));
+
+      // Mostrar el comentario en el foro
+      agregarComentarioAlForo(nuevoComentario);
+
+      inputComentario.value = '';
+    });
+
+    // Permite enviar con Enter
+    inputComentario.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        btnSubirComentario.click();
+      }
+    });
+
+    // --- CARGAR COMENTARIOS AL INICIAR ---
+    const email = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+    if (email) {
+      const comentariosKey = 'comentarios_' + email;
+      const comentarios = JSON.parse(localStorage.getItem(comentariosKey)) || [];
+      comentarios.forEach(comentario => agregarComentarioAlForo(comentario));
+    }
+  }
+
+  // Función para mostrar un comentario en el foro
+  function agregarComentarioAlForo(comentario) {
+    const foroCardBody = document.querySelector('.subircomentario')?.closest('.card-body');
+    const inputGroup = foroCardBody?.querySelector('.input-group');
+    if (!foroCardBody || !inputGroup) return;
+
+    // Siempre usa la imagen y el nombre actual del perfil
+    let avatar = "Icons/Logo.svg";
+    let nombreUsuario = comentario.email;
+    if (comentario.email) {
+      const userData = JSON.parse(localStorage.getItem('userData_' + comentario.email)) || {};
+      if (userData.profilePic) avatar = userData.profilePic;
+      if (userData.name && userData.name.trim() !== "") nombreUsuario = userData.name;
+    }
+
+    // Crea un id único para el comentario (por fecha y email)
+    const comentarioId = `${comentario.email}_${comentario.fecha}`;
+
+    const comentarioDiv = document.createElement('div');
+    comentarioDiv.className = 'mb-3 d-flex bg-light rounded p-3 align-items-start';
+    comentarioDiv.id = comentarioId;
+
+    // Solo el autor puede ver el botón eliminar
+    const usuarioActual = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+    const puedeEliminar = usuarioActual === comentario.email;
+
+    comentarioDiv.innerHTML = `
+      <img src="${avatar}" alt="avatar" class="rounded-circle me-3" width="40" height="40">
+      <div class="flex-grow-1">
+        <h6 class="mb-1">${nombreUsuario}</h6>
+        <p class="mb-0">${comentario.texto}</p>
+        <small class="text-muted">${new Date(comentario.fecha).toLocaleString()}</small>
+      </div>
+      ${puedeEliminar ? `
+        <button class="btn btn-sm btn-outline-danger ms-2 eliminar-comentario" title="Eliminar comentario">
+          <i class="bi bi-trash"></i>
+        </button>
+      ` : ''}
+    `;
+    foroCardBody.insertBefore(comentarioDiv, inputGroup.nextElementSibling);
+
+    // Evento para eliminar
+    if (puedeEliminar) {
+      comentarioDiv.querySelector('.eliminar-comentario').addEventListener('click', function() {
+        eliminarComentario(comentario);
+      });
+    }
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const nameInput = document.getElementById('userName');
+  const genderSelect = document.getElementById('userGender');
+  const ageInput = document.getElementById('userAge');
+  const email = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
+  let userData = {};
+
+  if (email) {
+    userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
+
+    // Cargar nombre
+    if (nameInput && userData.name) {
+      nameInput.value = userData.name;
+    }
+    // Cargar género
+    if (genderSelect && userData.gender) {
+      genderSelect.value = userData.gender;
+    }
+    // Cargar edad
+    if (ageInput && userData.age) {
+      ageInput.value = userData.age;
+    }
+  }
+
+  // Guardar nombre al cambiar
+  if (nameInput) {
+    nameInput.addEventListener('change', function() {
+      if (email) {
+        userData.name = nameInput.value.trim();
+        localStorage.setItem('userData_' + email, JSON.stringify(userData));
+      }
+    });
+  }
+  // Guardar género al cambiar
+  if (genderSelect) {
+    genderSelect.addEventListener('change', function() {
+      if (email) {
+        userData.gender = genderSelect.value;
+        localStorage.setItem('userData_' + email, JSON.stringify(userData));
+      }
+    });
+  }
+  // Guardar edad al cambiar
+  if (ageInput) {
+    ageInput.addEventListener('change', function() {
+      if (email) {
+        userData.age = ageInput.value;
+        localStorage.setItem('userData_' + email, JSON.stringify(userData));
+      }
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const email = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
+  const profilePicInput = document.getElementById('profilePicInput');
+  const profilePic = document.getElementById('profilePic');
+  let userData = {};
+
+  if (email) {
+    userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
+    // Mostrar imagen guardada
+    if (profilePic && userData.profilePic) {
+      profilePic.src = userData.profilePic;
+    }
+  }
+
+  // Cambiar foto de perfil
+  if (profilePicInput && profilePic) {
+    profilePicInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        profilePic.src = e.target.result;
+        if (email) {
+          userData.profilePic = e.target.result;
+          localStorage.setItem('userData_' + email, JSON.stringify(userData));
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+});
+
+// Función para eliminar comentario
+function eliminarComentario(comentario) {
+  const comentariosKey = 'comentarios_' + comentario.email;
+  let comentarios = JSON.parse(localStorage.getItem(comentariosKey)) || [];
+  // Filtra por fecha exacta y texto para evitar eliminar otros comentarios
+  comentarios = comentarios.filter(c => !(c.fecha === comentario.fecha && c.texto === comentario.texto));
+  localStorage.setItem(comentariosKey, JSON.stringify(comentarios));
+  // Elimina del DOM
+  const comentarioId = `${comentario.email}_${comentario.fecha}`;
+  const comentarioDiv = document.getElementById(comentarioId);
+  if (comentarioDiv) comentarioDiv.remove();
+}
+//barra de progreso
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('videoModulo1');
+  const barra = document.getElementById('barraVideoModulo1');
+  if (video && barra) {
+    video.addEventListener('timeupdate', () => {
+      if (video.duration > 0) {
+        const porcentaje = Math.floor((video.currentTime / video.duration) * 100);
+        barra.style.width = porcentaje + '%';
+        // Guarda el progreso en localStorage
+        localStorage.setItem('progreso-modulo1', porcentaje);
+      }
+    });
+    video.addEventListener('ended', () => {
+      barra.style.width = '100%';
+      localStorage.setItem('progreso-modulo1', 100);
+    });
+    video.addEventListener('seeked', () => {
+      if (video.duration > 0) {
+        const porcentaje = Math.floor((video.currentTime / video.duration) * 100);
+        barra.style.width = porcentaje + '%';
+        localStorage.setItem('progreso-modulo1', porcentaje);
+      }
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const barraModulo1 = document.getElementById('progress-modulo1');
+  if (barraModulo1) {
+    const progreso = localStorage.getItem('progreso-modulo1') || 0;
+    barraModulo1.style.width = progreso + '%';
+  }
+});
+document.getElementById('btnCertificarse').addEventListener('click', async function() {
+  // 1. Obtener el nombre del usuario desde localStorage
+  const email = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
+  let nombre = "";
+  if (email) {
+    const userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
+    nombre = userData.name && userData.name.trim() !== "" ? userData.name : email.split('@')[0];
+  } else {
+    nombre = "Usuario";
+  }
+
+  // 2. Cargar el PDF base (Diploma.pdf)
+  const existingPdfBytes = await fetch('Images/Diploma.pdf').then(res => res.arrayBuffer());
+
+  // 3. Cargar el PDF con pdf-lib
+  const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+
+  // 4. Seleccionar la primera página
+  const page = pdfDoc.getPages()[0];
+
+  // 5. Definir fuente y tamaño
+  const font = await pdfDoc.embedFont(PDFLib.StandardFonts.HelveticaBold);
+  const fontSize = 32;
+
+  // 6. Calcular el ancho del texto para centrarlo
+  const { width, height } = page.getSize();
+  const textWidth = font.widthOfTextAtSize(nombre, fontSize);
+  const x = (width - textWidth) / 2;
+  const y = height / 2; // Centrado vertical
+
+  // 7. Escribir el nombre en el PDF
+  page.drawText(nombre, {
+    x: x,
+    y: y,
+    size: fontSize,
+    font: font,
+    color: PDFLib.rgb(0, 0, 0),
+  });
+
+  // 8. Descargar el PDF personalizado
+  const pdfBytes = await pdfDoc.save();
+  const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'Diploma_' + nombre + '.pdf';
+  link.click();
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const usuarioLogueado = sessionStorage.getItem('loggedInUser') || localStorage.getItem('loggedInUser');
+  const btnCertificarse = document.getElementById('btnCertificarse');
+  if (usuarioLogueado && btnCertificarse) {
+    let progresoUsuarios = JSON.parse(localStorage.getItem('progresoUsuarios')) || {};
+    const progresoModulo1 = progresoUsuarios[usuarioLogueado]?.modulo1 || 0;
+    if (progresoModulo1 == 100) {
+      btnCertificarse.classList.remove('d-none');
+    } else {
+      btnCertificarse.classList.add('d-none');
+    }
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const btnGuardarPerfil = document.getElementById('btnGuardarPerfil');
+  const msgPerfilGuardado = document.getElementById('msgPerfilGuardado');
+  const nameInput = document.getElementById('userName');
+  const genderSelect = document.getElementById('userGender');
+  const ageInput = document.getElementById('userAge');
+  const email = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
+
+  if (btnGuardarPerfil && email) {
+    btnGuardarPerfil.addEventListener('click', function() {
+      let userData = JSON.parse(localStorage.getItem('userData_' + email)) || {};
+      userData.name = nameInput.value.trim();
+      userData.gender = genderSelect.value;
+      userData.age = ageInput.value;
+      localStorage.setItem('userData_' + email, JSON.stringify(userData));
+      if (msgPerfilGuardado) {
+        msgPerfilGuardado.style.display = 'inline';
+        setTimeout(() => {
+          msgPerfilGuardado.style.display = 'none';
+        }, 2000);
+      }
+    });
   }
 });
